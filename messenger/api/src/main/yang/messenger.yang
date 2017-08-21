@@ -1,0 +1,33 @@
+module messenger {
+    yang-version 1.1;
+    namespace "urn:opendaylight:params:xml:ns:yang:messenger";
+    prefix "messenger";
+
+    revision "2017-08-17" {
+        description "Initial revision of messenger model";
+    }
+    
+    rpc messenger-world {
+        input {
+            leaf name {
+                type string;
+            }
+        }
+        output {
+            leaf greeting {
+                type string;
+            }
+        }
+    }
+    container greeting-registry {
+        list greeting-registry-entry {
+            key "name";
+            leaf name {
+                type string;
+            }
+            leaf greeting {
+                type string;
+            }
+        }
+    }
+}
