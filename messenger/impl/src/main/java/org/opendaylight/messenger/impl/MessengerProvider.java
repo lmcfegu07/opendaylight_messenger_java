@@ -216,19 +216,21 @@ public class MessengerProvider implements BindingAwareProvider, AutoCloseable, M
 	 
 	                 }
 	                 
-	                 
+	                 JSONObject obj = new JSONObject();
 	                 for (int i = 0; i < headerElements.size(); i++) {
 	         			
 	         			String elementName = headerElements.get(i);
 	         			String elementValue = "";
 	         			if ( i < valueElements.size() )
 	         				elementValue = valueElements.get(i);
-	         			JSONObject obj = new JSONObject();
+	         			
 	         	        obj.put(elementName, elementValue);
-	         	        elementList.put(obj);
+	         	    
+	         	       
 	          		 }
-	          		 
-	                 
+	                 elementList.put(obj);
+	                 LOG.info("JSON obj added ");
+	         	      LOG.info(obj.toString());
 	             	// System.out.println("fettah   valueElements size ---> " + valueElements.size());
 	            	// System.out.println("fettah   valueElements elements ---> " + valueElements);
 	            	
@@ -381,7 +383,7 @@ public class MessengerProvider implements BindingAwareProvider, AutoCloseable, M
 	    	
     		}
 	        
-    		LOG.info("parseFiletoXML starting **********************************************");
+    		LOG.info("parseFiletoXML ending **********************************************");
     	
       }    
 }
